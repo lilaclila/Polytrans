@@ -1,6 +1,6 @@
 --- STEAMODDED HEADER
---- MOD_NAME: Trans Spectrals
---- MOD_ID: TSpectrals
+--- MOD_NAME: Polytrans
+--- MOD_ID: Ptrans
 --- MOD_AUTHOR: [RadicaAprils, AutumnMood (it/she/they), LilacLilo (she/her), zebragoboom]
 --- MOD_DESCRIPTION: Spectral cards but with the trans flag colours
 --- PREFIX: tspa
