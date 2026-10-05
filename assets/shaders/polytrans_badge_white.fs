@@ -4,11 +4,21 @@
 	#define MY_HIGHP_OR_MEDIUMP mediump
 #endif
 
+// Trans shader for the "Polytrans" badge background.
+//
+// This is the same blue <-> pink band effect as polychrome.fs, but it is driven by
+// the on-screen pixel position instead of sprite UVs, because UI rectangles are drawn
+// as plain polygons (no texture coordinates). The badge text is drawn separately by
+// DynaText, so it is never touched by this shader.
+//
+// The input colour (what the UI draws with: white for the fill, a darkened white for the
+// emboss, black for the shadow) is multiplied with the effect, so emboss/shadow keep
+// their normal look.
 
 extern MY_HIGHP_OR_MEDIUMP number polytrans_time; // G.TIMERS.REAL
 extern MY_HIGHP_OR_MEDIUMP number unit_px;        // pixels per game unit, so the pattern scales with resolution
 
-// tweakables
+// Tweakables
 const number FIELD_SCALE = 24.0;   // field units per game unit (24 ~ same pattern scale as on a card)
 const number BLUE_HUE    = 0.55;
 const number PINK_HUE    = 0.95;

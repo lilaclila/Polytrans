@@ -1,10 +1,10 @@
 --- STEAMODDED HEADER
 --- MOD_NAME: Polytrans
 --- MOD_ID: Polytrans
---- MOD_AUTHOR: [Lilaclila, Original mod by RadicaAprils, AutumnMood (it/she/they) and Eremel]
---- MOD_DESCRIPTION: Spectral cards but with the trans flag colours
+--- MOD_AUTHOR: [Lilaclila (she/her), Original Spectrans mod by RadicaAprils & AutumnMood (it/she/they)]
+--- MOD_DESCRIPTION: Spectral cards and polychrome but with the trans flag colours
 --- PREFIX: tspa
---- VERSION: 1.2.0
+--- VERSION: 1.1.0
 --- DEPENDENCIES: [malverk]
 
 
@@ -97,7 +97,8 @@ end
 AltTexture{
     key = 'edition',
     set = 'Edition',
-    path = 'HRT-TSpectrals.png',
+    path = 'Jokers-TSpectrals.png', 
+    original_sheet = true,
     keys = {'e_polychrome'}
 }
 
@@ -113,7 +114,7 @@ Polytrans = Polytrans or {}
 function Polytrans.is_pack_active()
     if not (Malverk and Malverk.config and Malverk.config.selected) then return false end
     for _, pack in ipairs(Malverk.config.selected) do
-        if pack == 'polytrans' or pack == 'spectrans' or pack == 'tspa_spectrans' then return true end
+        if pack == 'polytrans' or pack == 'spectrans' or pack == 'tspa_spectrans' or pack == 'texpack_tspa_spectrans' then return true end
     end
     return false
 end
@@ -129,6 +130,7 @@ SMODS.Shader{
     path = 'polytrans_badge_white.fs',
     prefix_config = { key = false },
 }
+
 
 Polytrans.TEXT_CENTERS = {
     c_aura = true,
@@ -153,7 +155,7 @@ function Polytrans.is_affected(card)
     local center = card.config and card.config.center
     local key = center and center.key
     if not key then return false end
-    if Polytrans.TEXT_CENTERS[key] then return true end
+    if Polytrans.TEXT_CENTERS[key] and Polytrans.is_pack_active() then return true end
     if key == 'j_hit_the_road' then return Polytrans.hrt_active() end
     return false
 end
@@ -166,6 +168,7 @@ function Polytrans.create_badge()
     end
     return badge
 end
+
 
 local ref_draw_self = UIElement.draw_self
 function UIElement:draw_self()
@@ -192,8 +195,8 @@ function G.UIDEF.card_h_popup(card)
 end
 
 -- look here argil
--- append badge when Steamodded builds the badges for that card
--- appending here means it is added AFTER the rarity/type badge and the edition badge
+-- appended the mod badge when badges for that card are built
+-- appending here means it is added after the rarity/type badge and the edition badge
 if SMODS.create_mod_badges then
     local ref_create_mod_badges = SMODS.create_mod_badges
     function SMODS.create_mod_badges(obj, badges)
@@ -208,9 +211,13 @@ end
 
 
 local ref_draw_shader = Sprite.draw_shader
-function Sprite:draw_shader(shader, ...)
-    if shader == 'polychrome' and Polytrans.is_pack_active() and G.SHADERS['polytrans_card'] then
-        shader = 'polytrans_card'
+function Sprite.draw_shader(self, shader, ...)
+    if shader == 'polychrome' and Polytrans.is_pack_active() then
+        if G.SHADERS['polytrans_card'] then
+            shader = 'polytrans_card'
+        elseif G.SHADERS['tspa_polytrans_card'] then
+            shader = 'tspa_polytrans_card'
+        end
     end
     return ref_draw_shader(self, shader, ...)
 end

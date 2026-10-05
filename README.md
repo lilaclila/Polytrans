@@ -9,13 +9,14 @@ This is a fork of [SpecTrans by Eremel](https://github.com/Eremel/SpecTrans), ad
 ## Features
 
 * Retextures Spectral cards, the Spectral booster packs, the Ethereal Tag, the Ghost Deck, and related Jokers in trans flag colours.
-* Replaces the vanilla Polychrome edition shader with a trans flag coloured version. This applies to every Polychrome card in the game, not just Spectrals.
+* Replaces the vanilla Polychrome edition shader with a trans-coloured version. This applies to every Polychrome card in the game, not just Spectrals.
 * Renames the Polychrome edition to Trans everywhere it appears in card text and tooltips.
 * Adds a Polytrans badge (with the trans shader on the badge background, plain text on top) under every card this mod changes: Trans (Polychrome) edition cards, Aura, Hex, The Wheel of Fortune, Glow Up, Hone, and Hit the Road
+* Texture pack is managed through Malverk, so it can be toggled and combined with other packs in the in-game Textures menu.
 
 
-Requirements
----
+
+## Requirements
 
 * This mod requires [Lovely](https://github.com/ethangreen-dev/lovely-injector), [Steamodded](https://github.com/Steamodded/smods), and [Malverk](https://github.com/Eremel/Malverk)
 
@@ -24,14 +25,12 @@ Requirements
 ## Installation
 
 * Place the mod folder inside your Balatro `Mods` directory
-* Launch the game. To enable the textures, open the options menu and press the `Textures` button to access the Malverk UI, then select Polytrans and click apply
+* Launch the game. To enable the mod, open the options menu and press the `Textures` button to access the Malverk UI, then select Polytrans and click apply
 
 
-
-**Credits**
 
 * Original SpecTrans mod and art by RadicaAprils and AutumnMood, with coding by Eremel.
-* Trans shader, badges, and text edits by lilaclila - gihtub / lilaclilo - discord, HTR art by zebragoboom.
+* Trans shader, badges, and text edits by yours truly, HTR art by zebragoboom.
 
 
 

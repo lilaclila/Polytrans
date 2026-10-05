@@ -4,7 +4,7 @@
 	#define MY_HIGHP_OR_MEDIUMP mediump
 #endif
 
-extern MY_HIGHP_OR_MEDIUMP vec2 polychrome;
+extern MY_HIGHP_OR_MEDIUMP vec2 polytrans_card;
 extern MY_HIGHP_OR_MEDIUMP number dissolve;
 extern MY_HIGHP_OR_MEDIUMP number time;
 extern MY_HIGHP_OR_MEDIUMP vec4 texture_details;
@@ -19,7 +19,7 @@ vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
         return vec4(shadow ? vec3(0.,0.,0.) : tex.xyz, shadow ? tex.a*0.3: tex.a);
     }
 
-    float adjusted_dissolve = (dissolve*dissolve*(3.-2.*dissolve))*1.02 - 0.01; // adjusting 0.0-1.0 to fall to -0.1 - 1.1 scale so the mask doesnt pause at rly high values
+    float adjusted_dissolve = (dissolve*dissolve*(3.-2.*dissolve))*1.02 - 0.01; //Adjusting 0.0-1.0 to fall to -0.1 - 1.1 scale so the mask does not pause at extreme values
 
 	float t = time * 10.0 + 2003.;
 	vec2 floored_uv = (floor((uv*texture_details.ba)))/max(texture_details.b, texture_details.a);
@@ -107,7 +107,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
 	vec4 hsl = HSL(vec4(tex.r*saturation_fac, tex.g*saturation_fac, tex.b, tex.a));
 
-	float t = polychrome.y*2.221 + time;
+	float t = polytrans_card.y*2.221 + time;
 	vec2 floored_uv = (floor((uv*texture_details.ba)))/texture_details.ba;
     vec2 uv_scaled_centered = (floored_uv - 0.5) * 50.;
 	
@@ -119,11 +119,11 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
         cos(length(field_part1) / 19.483) + sin(length(field_part2) / 33.155) * cos(field_part2.y / 15.73) +
         cos(length(field_part3) / 27.193) * sin(field_part3.x / 21.92) ))/2.;
 
-    float res = (.5 + .5* cos( (polychrome.x) * 2.612 + ( field + -.5 ) *3.14));
+    float res = (.5 + .5* cos( (polytrans_card.x) * 2.612 + ( field + -.5 ) *3.14));
 
 	float blue_hue = 0.55;
 	float pink_hue = 0.95;
-	float cycle = (res + polychrome.y*0.04) * 2.0;
+	float cycle = (res + polytrans_card.y*0.04) * 2.0;
 	float band = 0.5 - 0.5*cos(cycle*6.28318);
 	float edge = smoothstep(0.42, 0.58, band);
 	hsl.x = mix(blue_hue, pink_hue, edge);
