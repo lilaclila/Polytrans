@@ -1,22 +1,12 @@
 return {
     misc = {
         dictionary = {
-            k_spectrans = 'Spectrans Pack',
-            k_spectrans_card = 'Spectrans'
-        },
-        labels = {
-            polychrome = 'Trans'
+            k_spectrans = 'Polytrans Pack',
+            k_spectrans_card = 'Polytrans',
+            k_polytrans = 'Polytrans'
         }
     },
     descriptions = {
-        Edition = {
-            e_polychrome = {
-                name = "Trans",
-                text = {
-                    "{X:mult,C:white} X#1# {} Mult",
-                },
-            },
-        },
         Joker = {
             j_bootstraps = {
                 name = "Bootstraps",
@@ -117,28 +107,28 @@ return {
             },
             alt_tex_tspa_boosters = {
                 p_spectral_normal = {
-                    name = "Spectrans Pack",
+                    name = "Polytrans Pack",
                     text = {
                         "Choose {C:attention}#1#{} of up to",
-                        "{C:attention}#2#{C:spectral} Spectrans{} cards to",
+                        "{C:attention}#2#{C:spectral} Polytrans{} cards to",
                         "be used immediately"
                     },
                     badge = 'spectrans'
                 },
                 p_spectral_jumbo = {
-                    name = "Jumbo Spectrans Pack",
+                    name = "Jumbo Polytrans Pack",
                     text = {
                         "Choose {C:attention}#1#{} of up to",
-                        "{C:attention}#2#{C:spectral} Spectrans{} cards to",
+                        "{C:attention}#2#{C:spectral} Polytrans{} cards to",
                         "be used immediately"
                     },
                     badge = 'spectrans'
                 },
                 p_spectral_mega = {
-                    name = "Mega Spectrans Pack",
+                    name = "Mega Polytrans Pack",
                     text = {
                         "Choose {C:attention}#1#{} of up to",
-                        "{C:attention}#2#{C:spectral} Spectrans{} cards to",
+                        "{C:attention}#2#{C:spectral} Polytrans{} cards to",
                         "be used immediately"
                     },
                     badge = 'spectrans'
@@ -148,14 +138,14 @@ return {
                 tag_ethereal = {
                     text = {
                         "Gives a free",
-                        "{C:spectral}Spectrans Pack"
+                        "{C:spectral}Polytrans Pack"
                     }
                 }
             },
             alt_tex_tspa_deck = {
                 b_ghost = {
                     text = {
-                        "{C:spectral}Spectrans{} cards may",
+                        "{C:spectral}Polytrans{} cards may",
                         "appear in the shop,",
                         "start with a {C:spectral,T:c_hex}Hex{} card",
                     }
@@ -165,17 +155,17 @@ return {
                 j_hit_the_road = {
                     name = 'HRT',
                     text = {
-                        "This Joker gains {X:mult,C:white} X#1# {} Mult",
+                        "This Joker gains {X:mult,C:white} X#2# {} Mult",
                         "for every {C:attention}Jack{} discarded",
                         "this round",
-                        "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+                        "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)"
                     }
                 }
             }
         },
         texture_packs = {
             texpack_tspa_spectrans = {
-                name = 'Spectrans',
+                name = 'Polytrans',
                 text = {
                     '{C:spectral}Spectral cards{} with',
                     '{C:pink}Trans{} flag colours'
@@ -185,14 +175,14 @@ return {
                         text = {
                             "If {C:attention}first hand{} of round is",
                             "a single {C:attention}6{}, destroy it and",
-                            "create a {C:spectral}Spectrans{} card",
+                            "create a {C:spectral}Polytrans{} card",
                             "{C:inactive}(Must have room)"
                         }
                     },
                     j_ring_master = {
                         text = {
                             "{C:attention}Joker{}, {C:tarot}Tarot{}, {C:planet}Planet{},",
-                            "and {C:spectral}Spectrans{} cards may",
+                            "and {C:spectral}Polytrans{} cards may",
                             "appear multiple times"
                         }
                     },
@@ -200,13 +190,13 @@ return {
                         text = {
                             "If {C:attention}poker hand{} is a",
                             "{C:attention}#1#{}, create a",
-                            "random {C:spectral}Spectrans{} card",
+                            "random {C:spectral}Polytrans{} card",
                             "{C:inactive}(Must have room)"
                         }
                     },
                     v_omen_globe = {
                         text = {
-                            "{C:spectral}Spectrans{} cards may",
+                            "{C:spectral}Polytrans{} cards may",
                             "appear in any of",
                             "the {C:attention}Arcana Packs"
                         }
